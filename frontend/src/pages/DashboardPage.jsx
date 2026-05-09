@@ -23,12 +23,12 @@ export default function DashboardPage() {
 
   const cargarDoctor = async () => {
     try {
-      const response = await fetch('http://127.0.0.1:8000/auth/me', {
+      const response = await fetch('https://dental-attendance-production.up.railway.app/auth/me', {
         headers: { 'Authorization': `Bearer ${token}` }
       })
       const data = await response.json()
       if (data.doctor_id) {
-        const res = await fetch(`http://127.0.0.1:8000/doctors/${data.doctor_id}`, {
+        const res = await fetch(`https://dental-attendance-production.up.railway.app/doctors/${data.doctor_id}`, {
           headers: { 'Authorization': `Bearer ${token}` }
         })
         const doctorData = await res.json()
@@ -44,7 +44,7 @@ export default function DashboardPage() {
       const payload = JSON.parse(atob(token.split('.')[1]))
       const doctorId = payload.doctor_id
       if (!doctorId) return
-      const response = await fetch(`http://127.0.0.1:8000/attendance/doctor/${doctorId}`, {
+      const response = await fetch(`https://dental-attendance-production.up.railway.app/attendance/doctor/${doctorId}`, {
         headers: { 'Authorization': `Bearer ${token}` }
       })
       const data = await response.json()
@@ -59,7 +59,7 @@ export default function DashboardPage() {
     setMensaje('')
     setError('')
     try {
-      const response = await fetch('http://127.0.0.1:8000/attendance/', {
+      const response = await fetch('https://dental-attendance-production.up.railway.app/attendance/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -30,7 +30,7 @@ export default function AdminPage() {
 
   const cargarDoctores = async () => {
     try {
-      const res = await fetch('http://127.0.0.1:8000/doctors/', {
+      const res = await fetch('https://dental-attendance-production.up.railway.app/doctors/', {
         headers: { 'Authorization': `Bearer ${token}` }
       })
       const data = await res.json()
@@ -43,7 +43,7 @@ export default function AdminPage() {
   const cargarRegistros = async () => {
     setLoading(true)
     try {
-      const res = await fetch('http://127.0.0.1:8000/attendance/', {
+      const res = await fetch('https://dental-attendance-production.up.railway.app/attendance/', {
         headers: { 'Authorization': `Bearer ${token}` }
       })
       const data = await res.json()
@@ -108,7 +108,7 @@ export default function AdminPage() {
     setMensajeDoctor('')
     setErrorDoctor('')
     try {
-      const res = await fetch('http://127.0.0.1:8000/doctors/', {
+      const res = await fetch('https://dental-attendance-production.up.railway.app/doctors/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -131,7 +131,7 @@ export default function AdminPage() {
     setMensajeUsuario('')
     setErrorUsuario('')
     try {
-      const res = await fetch('http://127.0.0.1:8000/auth/register', {
+      const res = await fetch('https://dental-attendance-production.up.railway.app/auth/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
